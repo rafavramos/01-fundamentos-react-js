@@ -1,8 +1,8 @@
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
-import { Post } from './Post'
 import './global.css'
 import styles from './App.module.css'
+import { Post } from './components/Post'
 
 export function App() {
   return (
@@ -11,10 +11,8 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Rafael"
-            content="Em pleno 2022, ano do Elon Musk. Marcha nos projetos. Eu sou apenas um mero camponês."
-          />
+          <Post />
+          <Post />
         </main>
       </div>
     </div>
