@@ -20,6 +20,13 @@ export function Post({ author, publishedAt, content }) {
     addSuffix: true
   })
 
+  function deleteComment(commentToDelete) {
+    const newCommentListWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete
+    })
+    setComments(newCommentListWithoutDeletedOne)
+  }
+
   function handleCreateNewComment() {
     event.preventDefault()
     setComments([...comments, newCommentText])
@@ -77,7 +84,13 @@ export function Post({ author, publishedAt, content }) {
       </form>
       <div className={styles.commentList}>
         {comments.map(comment => {
-          return <Comment key={comment} content={comment} />
+          return (
+            <Comment
+              key={comment}
+              content={comment}
+              onDeleteComment={deleteComment}
+            />
+          )
         })}
       </div>
     </article>
